@@ -13,6 +13,8 @@ TESTCASE = os.path.join(PROBLEM_DIR, "src", "testcase.txt")
 SRC_FILE = os.path.join(PROBLEM_DIR, "src", "rosalind_prot.txt")
 ANS_FILE = os.path.join(PROBLEM_DIR, "src", "answer.txt")
 
+SOURCES = (TESTCASE, SRC_FILE)
+
 # Initialize the RNA codon table
 CODON_TABLE = {
     "U": {
@@ -41,9 +43,18 @@ CODON_TABLE = {
     },
 }
 
+# Prompt user to select source file
+print("========================================")
+print("Current Problem:", os.path.basename(__file__))
+print("========== SELECT SOURCE FILE ==========")
+print("0 for test file")
+print("1 for actual source file")
+selection = int(input("Enter your choice (0 or 1): ").strip())
+print("========================================")
+
 # Extract RNA sequence from file
 rna = ""
-with open(SRC_FILE) as file:
+with open(SOURCES[selection]) as file:
     for line in file:
         rna += line.strip()
 

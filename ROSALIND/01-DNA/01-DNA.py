@@ -13,11 +13,22 @@ TESTCASE = os.path.join(PROBLEM_DIR, "src", "testcase.txt")
 SRC_FILE = os.path.join(PROBLEM_DIR, "src", "rosalind_dna.txt")
 ANS_FILE = os.path.join(PROBLEM_DIR, "src", "answer.txt")
 
+SOURCES = (TESTCASE, SRC_FILE)
+
 # Initialize Nucleotide Count Dictionary
 NUCLEOTIDE_COUNT = {"A": 0, "C": 0, "G": 0, "T": 0}
 
+# Prompt user to select source file
+print("========================================")
+print("Current Problem:", os.path.basename(__file__))
+print("========== SELECT SOURCE FILE ==========")
+print("0 for test file")
+print("1 for actual source file")
+selection = int(input("Enter your choice (0 or 1): ").strip())
+print("========================================")
+
 # Open the DNA file and count nucleotides
-with open(SRC_FILE) as file:
+with open(SOURCES[selection]) as file:
     for line in file:
         for char in line.strip():
             NUCLEOTIDE_COUNT[char] += 1

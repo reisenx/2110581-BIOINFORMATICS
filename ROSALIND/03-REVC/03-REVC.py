@@ -24,6 +24,8 @@ DNA_COMPLEMENT = {
 }
 
 # Prompt user to select source file
+print("========================================")
+print("Current Problem:", os.path.basename(__file__))
 print("========== SELECT SOURCE FILE ==========")
 print("0 for test file")
 print("1 for actual source file")
