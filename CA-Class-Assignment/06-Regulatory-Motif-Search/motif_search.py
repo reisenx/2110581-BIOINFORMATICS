@@ -13,7 +13,7 @@ import random
 # Directory Configurations
 PROBLEM_DIR = os.path.dirname(os.path.abspath(__file__))
 SRC_FILE = os.path.join(PROBLEM_DIR, "src", "dna_sequences.txt")
-ANS_FILE = os.path.join(PROBLEM_DIR, "src", "answer.txt")
+ANS_FILE = os.path.join(PROBLEM_DIR, "src", "generate.txt")
 
 # Motif Length Configuration
 NUCLEOTIDES = ("a", "c", "g", "t")
