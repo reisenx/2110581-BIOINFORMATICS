@@ -1,8 +1,8 @@
 # --------------------------------------------------
-# File Name : 01-DNA.py
-# Problem   : Counting DNA Nucleotides
+# File Name : INI4.py
+# Problem   : Conditions and Loops
 # Author    : Worralop Srichainont
-# Date      : 2025-08-11
+# Date      : 2025-08-27
 # --------------------------------------------------
 
 import os
@@ -10,13 +10,10 @@ import os
 # Directory Configurations
 PROBLEM_DIR = os.path.dirname(os.path.abspath(__file__))
 TESTCASE = os.path.join(PROBLEM_DIR, "src", "testcase.txt")
-SRC_FILE = os.path.join(PROBLEM_DIR, "src", "rosalind_dna.txt")
+SRC_FILE = os.path.join(PROBLEM_DIR, "src", "rosalind_ini4.txt")
 ANS_FILE = os.path.join(PROBLEM_DIR, "src", "answer.txt")
 
 SOURCES = (TESTCASE, SRC_FILE)
-
-# Initialize Nucleotide Count Dictionary
-NUCLEOTIDE_COUNT = {"A": 0, "C": 0, "G": 0, "T": 0}
 
 # Prompt user to select source file
 print("========================================")
@@ -27,18 +24,17 @@ print("1 for actual source file")
 selection = int(input("Enter your choice (0 or 1): ").strip())
 print("========================================")
 
-# Open the DNA file and count nucleotides
+# Input number range from a file.
+start, end = 0, 0
 with open(SOURCES[selection]) as file:
-    for line in file:
-        for char in line.strip():
-            NUCLEOTIDE_COUNT[char] += 1
+    start, end = [int(num) for num in file.readline().strip().split()]
 
-# Construct the result string
-result = ""
-for _, count in NUCLEOTIDE_COUNT.items():
-    result += f"{count} "
-result = result.strip()
+# Calculate sum of all odd numbers in range start <= num <= end
+ans = 0
+for num in range(start, end + 1):
+    if num % 2 == 1:
+        ans += num
 
-# Output the nucleotide counts
+# Output the sum
 with open(ANS_FILE, "w", encoding="utf-8") as ans_file:
-    ans_file.write(result)
+    ans_file.write(str(ans))

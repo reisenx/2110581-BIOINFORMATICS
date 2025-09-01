@@ -1,5 +1,5 @@
 # --------------------------------------------------
-# File Name : 08-PROT.py
+# File Name : PROT.py
 # Problem   : Translating RNA into Protein
 # Author    : Worralop Srichainont
 # Date      : 2025-08-11
