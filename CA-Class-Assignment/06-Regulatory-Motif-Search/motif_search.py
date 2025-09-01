@@ -147,20 +147,6 @@ def get_randomized_motif_search(dna_sequences):
     return best_motifs
 
 
-# Capitalize motif on each DNA sequence
-def get_capitalize_motifs(dna_sequences, best_motifs):
-    capitalized_motifs = []
-    for i in range(len(dna_sequences)):
-        idx = dna_sequences[i].find(best_motifs[i])
-        if idx != -1:
-            capitalized_motifs.append(
-                dna_sequences[i][:idx]
-                + best_motifs[i].upper()
-                + dna_sequences[i][idx + len(best_motifs[i]) :]
-            )
-    return capitalized_motifs
-
-
 # Main function
 def main():
     # Input all DNA sequence into a list
@@ -173,8 +159,7 @@ def main():
 
     # Get the best motifs from the DNA sequences by using randomized motif search
     best_motifs = get_randomized_motif_search(dna_sequences)
-    # capitalized_motifs = [seq.upper() for seq in best_motifs]
-    capitalized_motifs = get_capitalize_motifs(dna_sequences, best_motifs)
+    capitalized_motifs = [seq.upper() for seq in best_motifs]
 
     # Output best motifs to a file
     with open(ANS_FILE, "w", encoding="utf-8") as ans_file:
