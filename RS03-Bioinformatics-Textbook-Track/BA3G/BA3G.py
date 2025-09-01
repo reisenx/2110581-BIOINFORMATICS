@@ -24,7 +24,7 @@ print("1 for actual source file")
 selection = int(input("Enter your choice (0 or 1): ").strip())
 print("========================================")
 
-# Initialize adjacency list and start node and end node
+# Initialize adjacency list, start node, and end node
 adjacency_list = {}
 start_node = ""
 end_node = ""
@@ -67,7 +67,7 @@ while stack:
 
     # If the current node has outgoing edges
     if adjacency_list[current_node]["out"]:
-        # Add the one of the adjacent nodes to the stack, and remove it from the adjacency list
+        # Add one of the adjacent nodes to the stack, and remove it from the adjacency list
         stack.append(adjacency_list[current_node]["out"].pop())
 
     # If the current node has no outgoing edges

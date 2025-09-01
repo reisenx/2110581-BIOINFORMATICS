@@ -31,7 +31,7 @@ with open(SOURCES[selection]) as file:
 # Reconstruct the original string from the Burrows-Wheeler Transform.
 decrypted_string = sorted(list(bwt))
 for i in range(len(bwt) - 1):
-    # Insert the each character from the BWT into the decrypted string
+    # Insert each character from the BWT into the decrypted string
     for j in range(len(bwt)):
         decrypted_string[j] = bwt[j] + decrypted_string[j]
 
